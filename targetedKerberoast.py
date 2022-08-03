@@ -586,7 +586,7 @@ def main():
 
         if TGT is None:
             if TGS is None:
-                tgt, cipher, oldSessionKey, sessionKey = getKerberosTGT(clientName=userName, password=args.auth_password, domain=args.auth_domain, lmhash=None, nthash=auth_nt_hash,
+                tgt, cipher, oldSessionKey, sessionKey = getKerberosTGT(clientName=userName, password=args.auth_password, domain=args.auth_domain, lmhash=b'', nthash=str.encode(auth_nt_hash),
                                                                         aesKey=args.auth_aes_key, kdcHost=args.dc_ip)
         else:
             tgt = TGT['KDC_REP']
